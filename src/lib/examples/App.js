@@ -68,11 +68,13 @@ function App() {
     employees.push(generateRandomEmployee(i));
   }
 
+  const primaryColor = "#5a6f08";
+
   return (
     <main className="employees">
       <div className="container">
         <h1>Current Employees</h1>
-        <TablePlugin data={employees} dataMapping={dataMapping} />
+        <TablePlugin data={employees} dataMapping={dataMapping} primaryColor = {primaryColor}/>
       </div>
     </main>
   );

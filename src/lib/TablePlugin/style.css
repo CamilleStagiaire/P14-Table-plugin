@@ -38,20 +38,12 @@ td {
 .select, .pagination {
   color: white;
   font-weight: bold;
-  /* background-color:rgba(90, 111, 8, 0.9); */
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.list-body:nth-of-type(odd) {
-  /* background-color: rgba(90, 111, 8, 0.1); */
-}
-
-.table .sorted {
-  /* background-color: rgba(90, 111, 8, 0.1); */
-}
 
 
 button {
@@ -132,6 +124,7 @@ th img {
     .select, .pagination {
       flex-direction: column;
       gap: 10px;
+      align-items: flex-start;
     }
 
     button {

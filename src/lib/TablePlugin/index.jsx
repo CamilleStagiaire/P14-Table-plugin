@@ -1,20 +1,31 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useCallback, useEffect } from "react";
 import chevronUp from "./assets/chevronUp.svg";
 import chevronDown from "./assets/chevronDown.svg";
 import "./style.css";
 
-const TablePlugin = ({ 
-  data,
-  dataMapping,
-  oddRowColor = "rgba(90, 111, 8, 0.1)",
-  sortedColumnColor = "rgba(90, 111, 8, 0.1)",
-  selectPaginationColor = "rgba(90, 111, 8, 0.9)",
+const TablePlugin = ({ data, dataMapping, primaryColor }) => {
+  const { r, g, b } = useMemo(() => {
+    const hexToRgb = (hex) => {
+      let r = parseInt(hex.slice(1, 3), 16);
+      let g = parseInt(hex.slice(3, 5), 16);
+      let b = parseInt(hex.slice(5, 7), 16);
+      return { r, g, b };
+    };
+    return hexToRgb(primaryColor);
+  }, [primaryColor]);
 
- }) => {
-  const [sortConfig, setSortConfig] = useState({
-    key: "lastName",
-    direction: "ascending",
-  });
+  const getStyle = useCallback((isSorted, isOddRow, selectPagination) => {
+    let backgroundColor;
+    if (isSorted || isOddRow) {
+      backgroundColor = `rgba(${r}, ${g}, ${b}, 0.1)`;
+    } else if (selectPagination) {
+      backgroundColor = `rgba(${r}, ${g}, ${b}, 0.9)`;
+    }
+    return { backgroundColor };
+  }, [r, g, b]);
+
+  const [sortConfig, setSortConfig] = useState({ key: "lastName", direction: "ascending" });
+
   const [currentPage, setCurrentPage] = useState(1);
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
@@ -81,9 +92,16 @@ const TablePlugin = ({
     setCurrentPage(1);
   }, [entriesPerPage]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
   return (
     <div className="container-layout">
-      <div className="select"  style={{ backgroundColor: selectPaginationColor }}>
+      <div
+        className="select"
+        style={getStyle(false, false, "selectPagination")}
+      >
         <label>
           <span>Show </span>
           <select
@@ -115,7 +133,7 @@ const TablePlugin = ({
                 key={key}
                 onClick={() => requestSort(key)}
                 className={sortConfig.key === key ? "sorted" : ""}
-                style={{ backgroundColor: sortConfig.key === key ? sortedColumnColor : '' }}
+                style={getStyle(sortConfig.key === key, false)}
               >
                 {dataMapping[key]}
                 <div className="chevron-container">
@@ -147,37 +165,40 @@ const TablePlugin = ({
           </tr>
         </thead>
         <tbody>
-  {currentEntries.map((item, index) => (
-    <tr 
-      key={index} 
-      className="list-body" 
-      style={{ backgroundColor: index % 2 !== 0 ? oddRowColor : '' }}
-    >
-      {Object.keys(dataMapping).map((key, cellIndex) => (
-        <td
-          key={cellIndex}
-          className={sortConfig.key === key ? "sorted" : ""}
-          style={{ backgroundColor: sortConfig.key === key ? sortedColumnColor : '' }}
-        >
-          {item[key]}
-        </td>
-      ))}
-    </tr>
-  ))}
-</tbody>
+          {currentEntries.map((item, index) => (
+            <tr
+              key={index}
+              className="list-body"
+              style={getStyle(false, index % 2 !== 0)}
+            >
+              {Object.keys(dataMapping).map((key, cellIndex) => (
+                <td
+                  key={cellIndex}
+                  className={sortConfig.key === key ? "sorted" : ""}
+                  style={getStyle(sortConfig.key === key, false)}
+                >
+                  {item[key]}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
       </table>
-      <div className="pagination"  style={{ backgroundColor: selectPaginationColor }}>
+      <div
+        className="pagination"
+        style={getStyle(false, false, "selectPagination")}
+      >
         <span>
           Showing {startEntry} to {endEntry} of {totalEntries} entries
         </span>
         <div className="pages">
           <span
             onClick={handlePreviousPage}
-            onKeyDown={(e) => e.key === 'Enter' && handlePreviousPage()} 
+            onKeyDown={(e) => e.key === "Enter" && handlePreviousPage()}
             disabled={currentPage === 1}
             tabIndex="0"
           >
-            Previous{" "}
+            Previous
           </span>
           {pageNumbers.map((number) => (
             <button
@@ -190,11 +211,10 @@ const TablePlugin = ({
           ))}
           <span
             onClick={handleNextPage}
-            onKeyDown={(e) => e.key === 'Enter' && handleNextPage()} 
+            onKeyDown={(e) => e.key === "Enter" && handleNextPage()}
             disabled={currentPage === pageNumbers.length}
             tabIndex="0"
           >
-            {" "}
             Next
           </span>
         </div>
