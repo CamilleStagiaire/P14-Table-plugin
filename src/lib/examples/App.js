@@ -1,6 +1,6 @@
+import "./App.css";
 
-
-import  TablePlugin  from "../TablePlugin";
+import TablePlugin from "../TablePlugin";
 
 function App() {
   const dataMapping = {
@@ -15,39 +15,66 @@ function App() {
     department: "Department",
   };
 
-  const employees = [
-    {
-      firstName: "Alice",
-      lastName: "Smith",
-      dateOfBirth: "1990-03-15",
-      startDate: "2021-05-10",
-      street: "123 Main St",
-      city: "New York",
-      state: "New York",
-      zipCode: "10001",
-      department: "Marketing",
-    },
-    {
-      firstName: "Bob",
-      lastName: "Johnson",
-      dateOfBirth: "1985-08-22",
-      startDate: "2020-12-05",
-      street: "456 Elm St",
-      city: "Los Angeles",
-      state: "California",
-      zipCode: "90001",
-      department: "Sales",
-    },
-  ];
-  
-  console.log('employees in App:', employees);
-  console.log('dataMapping in App:', dataMapping);
-  
+  function generateRandomDate(start, end) {
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
+  }
+
+  function generateRandomEmployee(id) {
+    const firstNames = [ "Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Helen", "John", "Jeanne",
+    ];
+    const lastNames = [  "Smith",  "Johnson", "Brown", "Lee", "Wilson", "Davis", "Taylor", "Evans", "Dupond", "Durand",
+    ];
+    const departments = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"];
+    const cities = [ "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Détroit", "Whashington", "Boston", "Miami", ];
+    const states = [ "Illinois", "California", "Texas", "Florida", "Arizona", "Hawaii", "Wyoming", "Idaho", "Guam", "Delaware", ];
+    const randomFirstName =
+      firstNames[Math.floor(Math.random() * firstNames.length)];
+    const randomLastName =
+      lastNames[Math.floor(Math.random() * lastNames.length)];
+    const randomDateOfBirth = generateRandomDate(
+      new Date(1970, 0, 1),
+      new Date(2000, 11, 31)
+    )
+      .toISOString()
+      .split("T")[0];
+    const randomStartDate = generateRandomDate(new Date(2000, 0, 1), new Date())
+      .toISOString()
+      .split("T")[0];
+    const randomStreet = `${Math.floor(Math.random() * 1000) + 1} Main St`;
+    const randomCity = cities[Math.floor(Math.random() * cities.length)];
+    const randomState = states[Math.floor(Math.random() * states.length)];
+    const randomZipCode = `${Math.floor(Math.random() * 90000) + 10000}`;
+    const randomDepartment =
+      departments[Math.floor(Math.random() * departments.length)];
+
+    return {
+      firstName: randomFirstName,
+      lastName: randomLastName,
+      dateOfBirth: randomDateOfBirth,
+      startDate: randomStartDate,
+      street: randomStreet,
+      city: randomCity,
+      state: randomState,
+      zipCode: randomZipCode,
+      department: randomDepartment,
+    };
+  }
+
+  const employees = [];
+
+  for (let i = 1; i <= 50; i++) {
+    employees.push(generateRandomEmployee(i));
+  }
+
   return (
-    <div className="App">
-    <TablePlugin data={employees} dataMapping={dataMapping} />
-  
-    </div>
+    <main className="employees">
+      <div className="container">
+        <h1>Current Employees</h1>
+        <TablePlugin data={employees} dataMapping={dataMapping} />
+      </div>
+    </main>
   );
 }
 
