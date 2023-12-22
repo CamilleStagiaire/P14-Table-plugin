@@ -21,7 +21,7 @@ function App() {
     );
   }
 
-  function generateRandomEmployee(id) {
+  function generateRandomEmployee() {
     const firstNames = [ "Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Helen", "John", "Jeanne",
     ];
     const lastNames = [  "Smith",  "Johnson", "Brown", "Lee", "Wilson", "Davis", "Taylor", "Evans", "Dupond", "Durand",
@@ -64,7 +64,7 @@ function App() {
 
   const employees = [];
 
-  for (let i = 1; i <= 50; i++) {
+  for (let i = 1; i <= 20; i++) {
     employees.push(generateRandomEmployee(i));
   }
 
@@ -79,6 +79,5 @@ function App() {
     </main>
   );
 }
-
 
 export default App;
