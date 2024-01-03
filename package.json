@@ -1,6 +1,6 @@
 {
   "name": "table-plugin-openclassrooms",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "TablePlugin - P14 OpenClassrooms",
   "main": "dist/index.js",
   "dependencies": {
