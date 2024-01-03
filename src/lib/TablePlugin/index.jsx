@@ -26,6 +26,14 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
   paginate(1)
  }
 
+ function formatDate(isoDateStr) {
+  const date = new Date(isoDateStr);
+  const day = ("0" + date.getDate()).slice(-2);
+  const month = ("0" + (date.getMonth() + 1)).slice(-2);
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`; 
+}
+
   return (
     <div className="container-layout">
       <div
@@ -101,7 +109,9 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
                   className={sortConfig.key === key ? "sorted" : ""}
                   style={getStyle(sortConfig.key === key, false)}
                 >
-                  {item[key]}
+                   {key === "dateOfBirth" || key === "startDate"
+                  ? formatDate(item[key])
+                  : item[key]}
                 </td>
               ))}
             </tr>
