@@ -15,8 +15,8 @@ const usePagination = (data, itemsPerPage) => {
   const startEntry = totalEntries === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
   const endEntry = totalEntries === 0 ? 0 : Math.min(currentPage * itemsPerPage, totalEntries);
 
-
-  const paginate = (page) => {setCurrentPage(page)};
+  const paginate = (page) => {
+    setCurrentPage(page)};
 
   const pageNumbers = Array.from({ length: maxPage }, (_, i) => i + 1);
   const handlePreviousPage = () => paginate(Math.max(currentPage - 1, 1));

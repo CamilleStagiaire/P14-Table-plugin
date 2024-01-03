@@ -3,6 +3,7 @@ import "./App.css";
 import TablePlugin from "../TablePlugin";
 
 function App() {
+
   const dataMapping = {
     firstName: "First Name",
     lastName: "Last Name",
@@ -16,10 +17,13 @@ function App() {
   };
 
   function generateRandomDate(start, end) {
-    return new Date(
+    const date = new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
     );
-  }
+    return date.toISOString().split('T')[0]; 
+}
+
+
 
   function generateRandomEmployee() {
     const firstNames = [ "Alice", "Bob", "Charlie", "David", "Eva", "Frank", "Grace", "Helen", "John", "Jeanne",
@@ -27,21 +31,14 @@ function App() {
     const lastNames = [  "Smith",  "Johnson", "Brown", "Lee", "Wilson", "Davis", "Taylor", "Evans", "Dupond", "Durand",
     ];
     const departments = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"];
-    const cities = [ "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Détroit", "Whashington", "Boston", "Miami", ];
+    const cities = [ "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Detroit", "Whashington", "Boston", "Miami", ];
     const states = [ "Illinois", "California", "Texas", "Florida", "Arizona", "Hawaii", "Wyoming", "Idaho", "Guam", "Delaware", ];
     const randomFirstName =
       firstNames[Math.floor(Math.random() * firstNames.length)];
     const randomLastName =
       lastNames[Math.floor(Math.random() * lastNames.length)];
-    const randomDateOfBirth = generateRandomDate(
-      new Date(1970, 0, 1),
-      new Date(2000, 11, 31)
-    )
-      .toISOString()
-      .split("T")[0];
-    const randomStartDate = generateRandomDate(new Date(2000, 0, 1), new Date())
-      .toISOString()
-      .split("T")[0];
+      const randomDateOfBirth = generateRandomDate(new Date(1970, 0, 1), new Date(2000, 11, 31));
+      const randomStartDate = generateRandomDate(new Date(2000, 0, 1), new Date());
     const randomStreet = `${Math.floor(Math.random() * 1000) + 1} Main St`;
     const randomCity = cities[Math.floor(Math.random() * cities.length)];
     const randomState = states[Math.floor(Math.random() * states.length)];
@@ -64,7 +61,7 @@ function App() {
 
   const employees = [];
 
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 50; i++) {
     employees.push(generateRandomEmployee(i));
   }
 

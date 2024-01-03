@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import chevronUp from "./assets/chevronUp.svg";
 import chevronDown from "./assets/chevronDown.svg";
 import useFilter from "./hooks/useFilter";
@@ -21,13 +21,18 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
   const { sortedData, requestSort, sortConfig } = useTableSort(filteredData, { key: "lastName", direction: "ascending" });
   const { currentData, paginate, currentPage, startEntry, endEntry, totalEntries, pageNumbers, handlePreviousPage, handleNextPage } = usePagination(sortedData, entriesPerPage );
 
-  useEffect(() => {
-    paginate(1);
-  }, [entriesPerPage, paginate]);
+ const handleShowEntries = (e) =>{
+  setEntriesPerPage(Number(e.target.value))
+  paginate(1)
+ }
 
-  useEffect(() => {
-    paginate(1);
-  }, [searchTerm, paginate]);
+ function formatDate(isoDateStr) {
+  const date = new Date(isoDateStr);
+  const day = ("0" + date.getDate()).slice(-2);
+  const month = ("0" + (date.getMonth() + 1)).slice(-2);
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`; 
+}
 
   return (
     <div className="container-layout">
@@ -39,7 +44,7 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
           <span>Show </span>
           <select
             value={entriesPerPage}
-            onChange={(e) => setEntriesPerPage(Number(e.target.value))}
+            onChange={(e) => handleShowEntries(e)}
           >
             <option value={10}>10</option>
             <option value={25}>25</option>
@@ -104,7 +109,9 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
                   className={sortConfig.key === key ? "sorted" : ""}
                   style={getStyle(sortConfig.key === key, false)}
                 >
-                  {item[key]}
+                   {key === "dateOfBirth" || key === "startDate"
+                  ? formatDate(item[key])
+                  : item[key]}
                 </td>
               ))}
             </tr>
