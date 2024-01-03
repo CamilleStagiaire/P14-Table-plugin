@@ -52,12 +52,10 @@ const TablePlugin = _ref => {
     handlePreviousPage,
     handleNextPage
   } = (0, _usePagination.default)(sortedData, entriesPerPage);
-  (0, _react.useEffect)(() => {
+  const handleShowEntries = e => {
+    setEntriesPerPage(Number(e.target.value));
     paginate(1);
-  }, [entriesPerPage, paginate]);
-  (0, _react.useEffect)(() => {
-    paginate(1);
-  }, [searchTerm, paginate]);
+  };
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container-layout"
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -65,7 +63,7 @@ const TablePlugin = _ref => {
     style: getStyle(false, false, "selectPagination")
   }, /*#__PURE__*/_react.default.createElement("label", null, /*#__PURE__*/_react.default.createElement("span", null, "Show "), /*#__PURE__*/_react.default.createElement("select", {
     value: entriesPerPage,
-    onChange: e => setEntriesPerPage(Number(e.target.value))
+    onChange: e => handleShowEntries(e)
   }, /*#__PURE__*/_react.default.createElement("option", {
     value: 10
   }, "10"), /*#__PURE__*/_react.default.createElement("option", {
