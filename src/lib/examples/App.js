@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 
 import TablePlugin from "../TablePlugin";
@@ -61,7 +62,7 @@ function App() {
     employees.push(generateRandomEmployee(i));
   }
 
-  const primaryColor = "#5a6f08";
+  const primaryColor = "#00000";
 
   return (
     <main className="employees">

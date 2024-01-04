@@ -17,8 +17,7 @@
     },
     "plugins": ["react"],
     "rules": {
-      "react-hooks/exhaustive-deps": "off",
-      "quotes": ["error", "simple"],
-      "semi": ["error", "always"]
+      "react/prop-types": "off",
+      "react-hooks/exhaustive-deps": "off"
     }
   }
