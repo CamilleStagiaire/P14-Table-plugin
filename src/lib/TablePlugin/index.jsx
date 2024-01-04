@@ -26,12 +26,15 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
   paginate(1)
  }
 
- function formatDate(isoDateStr) {
-  const date = new Date(isoDateStr);
-  const day = ("0" + date.getDate()).slice(-2);
-  const month = ("0" + (date.getMonth() + 1)).slice(-2);
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`; 
+ function formatDate(dateStr) {
+  const date = new Date(dateStr);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const formatDay = day < 10 ? `0${day}` : day;
+    const formatMonth = month < 10 ? `0${month}` : month;
+    const formattedDate = `${formatDay}/${formatMonth}/${year}`;
+    return formattedDate;
 }
 
   return (
