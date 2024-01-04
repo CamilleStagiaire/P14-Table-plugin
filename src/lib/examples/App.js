@@ -25,8 +25,8 @@ function App() {
     const departments = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"];
     const cities = [ "New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Detroit", "Whashington", "Boston", "Miami", ];
     const states = [ "Illinois", "California", "Texas", "Florida", "Arizona", "Hawaii", "Wyoming", "Idaho", "Guam", "Delaware", ];
-    const dateOfBirth = ['1978-06-08', '2000-01-01', '1972-01-25', '2002-02-02', '2003-03-17' ]
-    const startDate = [ '2003-03-03', '2000-01-15', '2004-04-04', '2004-04-04',  '2005-05-05' ]
+    const dateOfBirth = ['08/06/1978', '01/01/2000', '25/01/1972', '02/02/2002', '17/03/2003' ]
+    const startDate = [ '03/03/2003', '15/01/2000', '04/04/2004', '30/11/2011',  '05/05/2005' ]
 
     const randomFirstName =
       firstNames[Math.floor(Math.random() * firstNames.length)];
@@ -58,7 +58,7 @@ function App() {
 
   const employees = [];
 
-  for (let i = 1; i <= 50; i++) {
+  for (let i = 1; i <= 20; i++) {
     employees.push(generateRandomEmployee(i));
   }
 

@@ -1,12 +1,13 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
 require("./App.css");
 var _TablePlugin = _interopRequireDefault(require("../TablePlugin"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function App() {
   const dataMapping = {
     firstName: "First Name",
@@ -25,8 +26,8 @@ function App() {
     const departments = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"];
     const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Detroit", "Whashington", "Boston", "Miami"];
     const states = ["Illinois", "California", "Texas", "Florida", "Arizona", "Hawaii", "Wyoming", "Idaho", "Guam", "Delaware"];
-    const dateOfBirth = ['1978-06-08', '2000-01-01', '1972-01-25', '2002-02-02', '2003-03-17'];
-    const startDate = ['2003-03-03', '2000-01-15', '2004-04-04', '2004-04-04', '2005-05-05'];
+    const dateOfBirth = ['08/06/1978', '01/01/2000', '25/01/1972', '02/02/2002', '17/03/2003'];
+    const startDate = ['03/03/2003', '15/01/2000', '04/04/2004', '30/11/2011', '05/05/2005'];
     const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
     const randomDateOfBirth = dateOfBirth[Math.floor(Math.random() * dateOfBirth.length)];
@@ -49,15 +50,15 @@ function App() {
     };
   }
   const employees = [];
-  for (let i = 1; i <= 50; i++) {
+  for (let i = 1; i <= 20; i++) {
     employees.push(generateRandomEmployee(i));
   }
-  const primaryColor = "#5a6f08";
-  return /*#__PURE__*/React.createElement("main", {
+  const primaryColor = "#00000";
+  return /*#__PURE__*/_react.default.createElement("main", {
     className: "employees"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/React.createElement("h1", null, "Current Employees"), /*#__PURE__*/React.createElement(_TablePlugin.default, {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Current Employees"), /*#__PURE__*/_react.default.createElement(_TablePlugin.default, {
     data: employees,
     dataMapping: dataMapping,
     primaryColor: primaryColor
