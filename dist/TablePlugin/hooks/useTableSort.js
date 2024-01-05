@@ -18,8 +18,8 @@ const useTableSort = (data, config) => {
         let bVal = new Date(convert(b[sortConfig.key]));
         return sortConfig.direction === 'ascending' ? aVal - bVal : bVal - aVal;
       } else {
-        if (a[sortConfig.key] < b[sortConfig.key]) return sortConfig.direction === 'ascending' ? -1 : 1;
-        if (a[sortConfig.key] > b[sortConfig.key]) return sortConfig.direction === 'ascending' ? 1 : -1;
+        if (a[sortConfig.key].toLowerCase() < b[sortConfig.key].toLowerCase()) return sortConfig.direction === 'ascending' ? -1 : 1;
+        if (a[sortConfig.key].toLowerCase() > b[sortConfig.key].toLowerCase()) return sortConfig.direction === 'ascending' ? 1 : -1;
         return 0;
       }
     });
