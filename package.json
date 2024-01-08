@@ -1,10 +1,17 @@
 {
   "name": "table-plugin-openclassrooms",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "TablePlugin - P14 OpenClassrooms",
   "main": "dist/index.js",
   "author": "CamilleStagiaire",
-  "keywords": ["table", "plugin", "react", "sorting", "filtering", "pagination"],
+  "keywords": [
+    "table",
+    "plugin",
+    "react",
+    "sorting",
+    "filtering",
+    "pagination"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
