@@ -3,6 +3,8 @@
   "version": "0.1.10",
   "description": "TablePlugin - P14 OpenClassrooms",
   "main": "dist/index.js",
+  "author": "CamilleStagiaire",
+  "keywords": ["table", "plugin", "react", "sorting", "filtering", "pagination"],
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -13,7 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "rimraf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

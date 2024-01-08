@@ -1,5 +1,5 @@
 # TablePlugin - P14 OpenClassrooms  
-https://github.com/CamilleStagiaire/P14-table-plugin.git
+https://github.com/CamilleStagiaire/P14-table-plugin.git  
 *Formation Développeur d'application - JavaScript React*  
 
 **Etape 1 : Initialisation du Projet:**  
@@ -52,8 +52,8 @@ yarn add table-plugin-openclassrooms
 
 ## Utilisation :
 ```javascript
+import React from 'react';
 import TablePlugin from 'table-plugin-openclassrooms';
-import React, { useState } from 'react';
 
 const App = () => {
   const data = [{ /* votre tableau de données */ }];

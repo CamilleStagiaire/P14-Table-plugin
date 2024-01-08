@@ -50,7 +50,7 @@ function App() {
     };
   }
   const employees = [];
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 100; i++) {
     employees.push(generateRandomEmployee(i));
   }
   const primaryColor = "#00000";
