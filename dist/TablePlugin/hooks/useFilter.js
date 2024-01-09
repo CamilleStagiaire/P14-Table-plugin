@@ -10,7 +10,6 @@ const useFilter = (data, searchTerm) => {
     if (!searchTerm) return data;
     return data.filter(item => Object.keys(item).some(key => key !== '_id' && item[key].toString().toLowerCase().includes(searchTerm.toLowerCase())));
   }, [data, searchTerm]);
-  console.log(filteredData);
   return filteredData;
 };
 var _default = exports.default = useFilter;

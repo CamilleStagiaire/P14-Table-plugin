@@ -10,8 +10,6 @@ const useFilter = (data, searchTerm) => {
     );
   }, [data, searchTerm]);
 
-  console.log(filteredData);
-
   return filteredData;
 };
 

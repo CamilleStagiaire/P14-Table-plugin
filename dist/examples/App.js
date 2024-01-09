@@ -25,6 +25,7 @@ function App() {
     const lastNames = ["smith", "Johnson", "Brown", "Lee", "Wilson", "Davis", "Taylor", "Evans", "Dupond", "Durand"];
     const departments = ["Sales", "Marketing", "Engineering", "Human Resources", "Legal"];
     const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "San Francisco", "Detroit", "Whashington", "Boston", "Miami"];
+    const streets = ["4394 Rockwell Lane", "test de rue", "120 Rhode Island Avenue", "2223 Washington Street", "Le village", "rue du centre", "316 North Avenue"];
     const states = ["illinois", "California", "Texas", "Florida", "Arizona", "Hawaii", "Wyoming", "Idaho", "Guam", "Delaware"];
     const dateOfBirth = ['08/06/1978', '01/01/2000', '25/01/1972', '02/02/2002', '17/03/2003'];
     const startDate = ['03/03/2003', '15/01/2000', '04/04/2004', '30/11/2011', '05/05/2005'];
@@ -32,7 +33,7 @@ function App() {
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
     const randomDateOfBirth = dateOfBirth[Math.floor(Math.random() * dateOfBirth.length)];
     const randomStartDate = startDate[Math.floor(Math.random() * startDate.length)];
-    const randomStreet = "".concat(Math.floor(Math.random() * 1000) + 1, " Washington Street");
+    const randomStreet = streets[Math.floor(Math.random() * streets.length)];
     const randomCity = cities[Math.floor(Math.random() * cities.length)];
     const randomState = states[Math.floor(Math.random() * states.length)];
     const randomZipCode = "".concat(Math.floor(Math.random() * 90000) + 10000);
