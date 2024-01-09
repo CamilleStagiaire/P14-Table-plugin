@@ -5,7 +5,7 @@ const useFilter = (data, searchTerm) => {
     if (!searchTerm) return data;
     return data.filter(item =>
       Object.keys(item).some(key =>
-        key !== 'id' && item[key].toString().toLowerCase().includes(searchTerm.toLowerCase())
+        key !== '_id' && item[key].toString().toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
   }, [data, searchTerm]);
