@@ -83,7 +83,7 @@ const TablePlugin = _ref => {
   }, Object.keys(dataMapping).map(key => /*#__PURE__*/_react.default.createElement("th", {
     key: key,
     onClick: () => requestSort(key),
-    className: sortConfig.key === key ? "sorted" : "",
+    className: "".concat(sortConfig.key === key ? "sorted" : "", " ").concat(key),
     style: getStyle(sortConfig.key === key, false)
   }, dataMapping[key], /*#__PURE__*/_react.default.createElement("div", {
     className: "chevron-container"
@@ -101,7 +101,7 @@ const TablePlugin = _ref => {
     style: getStyle(false, index % 2 !== 0)
   }, Object.keys(dataMapping).map((key, cellIndex) => /*#__PURE__*/_react.default.createElement("td", {
     key: cellIndex,
-    className: sortConfig.key === key ? "sorted" : "",
+    className: "".concat(sortConfig.key === key ? "sorted" : "", " ").concat(key),
     style: getStyle(sortConfig.key === key, false)
   }, item[key])))))), /*#__PURE__*/_react.default.createElement("div", {
     className: "pagination",
@@ -116,7 +116,7 @@ const TablePlugin = _ref => {
   }, "Previous"), pageNumbers.map(number => /*#__PURE__*/_react.default.createElement("button", {
     key: number,
     onClick: () => paginate(number),
-    className: number === currentPage ? "active" : ""
+    className: "button ".concat(number === currentPage ? "active" : "")
   }, number)), /*#__PURE__*/_react.default.createElement("span", {
     onClick: handleNextPage,
     onKeyDown: e => e.key === "Enter" && handleNextPage(),

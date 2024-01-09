@@ -32,7 +32,7 @@ function App() {
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
     const randomDateOfBirth = dateOfBirth[Math.floor(Math.random() * dateOfBirth.length)];
     const randomStartDate = startDate[Math.floor(Math.random() * startDate.length)];
-    const randomStreet = "".concat(Math.floor(Math.random() * 1000) + 1, " Main St");
+    const randomStreet = "".concat(Math.floor(Math.random() * 1000) + 1, " Washington Street");
     const randomCity = cities[Math.floor(Math.random() * cities.length)];
     const randomState = states[Math.floor(Math.random() * states.length)];
     const randomZipCode = "".concat(Math.floor(Math.random() * 90000) + 10000);
@@ -50,7 +50,7 @@ function App() {
     };
   }
   const employees = [];
-  for (let i = 1; i <= 100; i++) {
+  for (let i = 1; i <= 50; i++) {
     employees.push(generateRandomEmployee(i));
   }
   const primaryColor = "#00000";

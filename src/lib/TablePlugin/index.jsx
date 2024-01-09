@@ -62,7 +62,7 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
               <th
                 key={key}
                 onClick={() => requestSort(key)}
-                className={sortConfig.key === key ? "sorted" : ""}
+                className={`${sortConfig.key === key ? "sorted" : ""} ${key}`}
                 style={getStyle(sortConfig.key === key, false)}
               >
                 {dataMapping[key]}
@@ -98,7 +98,7 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
               {Object.keys(dataMapping).map((key, cellIndex) => (
                 <td
                   key={cellIndex}
-                  className={sortConfig.key === key ? "sorted" : ""}
+                  className={`${sortConfig.key === key ? "sorted" : ""} ${key}`}
                   style={getStyle(sortConfig.key === key, false)}
                 >
                   {item[key]}
@@ -128,7 +128,7 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
             <button
               key={number}
               onClick={() => paginate(number)}
-              className={number === currentPage ? "active" : ""}
+              className={`button ${number === currentPage ? "active" : ""}`}
             >
               {number}
             </button>

@@ -34,8 +34,15 @@ npm version patch
 npm publish --access public
 ```
 
-## Introduction
+## Description
 Le TablePlugin est un composant React conçu pour faciliter la création et la gestion de tables dynamiques dans vos applications React. Il permet de trier, filtrer et paginer des données.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/) > v16  
+- [VS Code](https://code.visualstudio.com/) éditeur de texte recommandé  
+- [Git]  
+- Un terminal bash ex : [git Bash]  
 
 ## Installation
 Vous pouvez installer le TablePlugin en utilisant npm ou yarn :

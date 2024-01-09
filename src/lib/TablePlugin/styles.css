@@ -1,5 +1,4 @@
-.list-header,
-.list-body {
+.list-header, .list-body {
   display: flex;
 }
 
@@ -22,14 +21,7 @@ tr {
 
 .table th,
 .table td {
-  padding: 0.5rem 0.75rem;
-  
-}
-
-th, td {
-  flex: 1;
-  text-align: left;
-  overflow: hidden;
+  padding: 0.5rem 0.75rem; 
 }
 
 .select, .pagination {
@@ -41,21 +33,17 @@ th, td {
   align-items: center;
 }
 
-button {
-  font-weight: bold;
-  font-size: 15px;
-}
-
 th, td {
+  position: relative;
+  flex: 1;
   text-align: left;
-  display: flex;
+  overflow: hidden;
+  text-align: left;
   justify-content: space-between;
   align-items: center;
   text-overflow: ellipsis;
   display: block; 
-  overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 th img {
@@ -89,6 +77,11 @@ th img {
   align-items: center;
 }
 
+.button {
+  font-weight: bold;
+  font-size: 15px;
+}
+
 @media only screen and (max-width: 1024px) {  
     .table,
     .table tbody, .table thead ,
@@ -117,11 +110,11 @@ th img {
       align-items: flex-start;
     }
 
-    button {
-      font-weight: bold;
+    .pages{
+      flex-direction: column;
+    }
+
+    .button {
       font-size: 15px;
     }
   }
-
- 
-

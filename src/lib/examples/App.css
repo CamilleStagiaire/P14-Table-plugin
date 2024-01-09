@@ -45,3 +45,6 @@ h1 {
   width: 70%;
 }
 
+.street, .department {
+  flex: 2;
+}
