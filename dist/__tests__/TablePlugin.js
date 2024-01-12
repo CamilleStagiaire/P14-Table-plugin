@@ -38,6 +38,7 @@ const dataMapping = {
 };
 const primaryColor = "#000000";
 describe("TablePlugin", () => {
+  // vérifie le tri des données lorsqu'un en-tête de colonne est cliqué
   test("sorts data when header is clicked", () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_TablePlugin.default, {
       data: data,
@@ -49,6 +50,8 @@ describe("TablePlugin", () => {
     const firstRowData = _react2.screen.getAllByRole("row")[1];
     expect(firstRowData.textContent).toContain("Alice");
   });
+
+  // vérifie le filtrage des données en fonction d'un terme de recherche
   test("filters data when search term is entered", () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_TablePlugin.default, {
       data: data,

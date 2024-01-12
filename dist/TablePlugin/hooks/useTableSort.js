@@ -3,12 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.convertDate = void 0;
 var _react = require("react");
 const convertDate = dmYDate => {
   const parts = dmYDate.split('/');
   return "".concat(parts[2], "-").concat(parts[1], "-").concat(parts[0]);
 };
+exports.convertDate = convertDate;
 const extractNumbers = str => {
   const match = str.match(/^(\d+)/);
   return match ? parseInt(match[0], 10) : null;

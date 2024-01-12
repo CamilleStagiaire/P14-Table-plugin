@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 
-const convertDate = (dmYDate) => {
+export const convertDate = (dmYDate) => {
   const parts = dmYDate.split('/');
   return `${parts[2]}-${parts[1]}-${parts[0]}`;
 };

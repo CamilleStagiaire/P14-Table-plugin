@@ -42,6 +42,8 @@ const dataMapping = {
 const primaryColor = "#000000";
 
 describe("TablePlugin", () => {
+
+  // vérifie le tri des données lorsqu'un en-tête de colonne est cliqué
   test("sorts data when header is clicked", () => {
     render(
       <TablePlugin
@@ -57,6 +59,7 @@ describe("TablePlugin", () => {
     expect(firstRowData.textContent).toContain("Alice");
   });
 
+  // vérifie le filtrage des données en fonction d'un terme de recherche
   test("filters data when search term is entered", () => {
     render(
       <TablePlugin

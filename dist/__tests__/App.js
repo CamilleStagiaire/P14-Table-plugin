@@ -6,10 +6,13 @@ var _react2 = require("@testing-library/react");
 require("@testing-library/jest-dom");
 var _App = _interopRequireDefault(require("../examples/App"));
 describe("App with TablePlugin", () => {
+  // vérifie que le composant TablePlugin est rendu correctement
   test("renders App component and finds TablePlugin functionality", () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     expect(_react2.screen.getByText("Current Employees")).toBeTruthy();
   });
+
+  // vérifie si le changement du nombre d'entrées par page fonctionne
   test("handleShowEntries changes the number of entries per page", () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     const select = _react2.screen.getByLabelText(/Show/);
@@ -20,12 +23,16 @@ describe("App with TablePlugin", () => {
     });
     expect(_react2.screen.getByText(/Showing 1 to 25 of/)).toBeTruthy();
   });
+
+  // vérifie handleNextPage navigue correctement vers la page suivante
   test("handleNextPage navigates to the next page correctly", () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     const nextPageButton = _react2.screen.getByText("Next");
     _react2.fireEvent.click(nextPageButton);
     expect(_react2.screen.getByText(/Showing 11 to 20 of/)).toBeTruthy();
   });
+
+  // vérifie handlePreviousPage navigue correctement vers la page suivante
   test("handlePreviousPage navigates to the previous page correctly", () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     const nextPageButton = _react2.screen.getByText("Next");
@@ -34,6 +41,8 @@ describe("App with TablePlugin", () => {
     _react2.fireEvent.click(previousPageButton);
     expect(_react2.screen.getByText(/Showing 1 to 10 of/)).toBeTruthy();
   });
+
+  // vérifie que handleNextPage est déclenché par le clavier
   test("handleNextPage is triggered with keyboard", async () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     const nextPageButton = _react2.screen.getByText("Next");
@@ -48,6 +57,8 @@ describe("App with TablePlugin", () => {
       });
     }
   });
+
+  // vérifie que handlePreviousPage est déclenché par le clavier
   test("handlePreviousPage is triggered with keyboard", async () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     const nextPageButton = _react2.screen.getByText("Next");
@@ -64,6 +75,8 @@ describe("App with TablePlugin", () => {
       });
     }
   });
+
+  // vérifie si le clic sur un numéro de page le définit comme page courante
   test("clicking a page number sets it as the current page", async () => {
     (0, _react2.render)( /*#__PURE__*/_react.default.createElement(_App.default, null));
     const pageNumberBeforeClick = _react2.screen.getByText("2");
