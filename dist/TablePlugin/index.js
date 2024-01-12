@@ -1,7 +1,7 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard").default;
+var _interopRequireDefault = require("C:/Users/Camille/Desktop/P14/table-plugin/node_modules/@babel/runtime/helpers/interopRequireDefault.js").default;
+var _interopRequireWildcard = require("C:/Users/Camille/Desktop/P14/table-plugin/node_modules/@babel/runtime/helpers/interopRequireWildcard.js").default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
