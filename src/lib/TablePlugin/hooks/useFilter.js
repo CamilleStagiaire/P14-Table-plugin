@@ -1,5 +1,11 @@
 import { useMemo } from 'react';
 
+/**
+ * Hook personnalisé pour filtrer des données en fonction d'un terme de recherche.
+ * @param {Array} data 
+ * @param {string} searchTerm
+ * @returns {Array}
+ */
 const useFilter = (data, searchTerm) => {
   const filteredData = useMemo(() => {
     if (!searchTerm) return data;
@@ -14,4 +20,3 @@ const useFilter = (data, searchTerm) => {
 };
 
 export default useFilter;
-

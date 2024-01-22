@@ -15,6 +15,13 @@ var _useTableSort = _interopRequireDefault(require("./hooks/useTableSort"));
 var _hexToRgb = _interopRequireDefault(require("./utils/hexToRgb"));
 var _getStyle = _interopRequireDefault(require("./utils/getStyle"));
 require("./styles.css");
+/**
+ * Composant TablePlugin 
+ * @param {Array} props.data
+ * @param {Object} props.dataMapping
+ * @param {String} props.primaryColor
+ * @returns {React.Element}
+ */
 const TablePlugin = _ref => {
   let {
     data,
@@ -51,6 +58,11 @@ const TablePlugin = _ref => {
     handlePreviousPage,
     handleNextPage
   } = (0, _usePagination.default)(sortedData, entriesPerPage);
+
+  /**
+   * Gère le changement du nombre d'entrées à afficher par page.
+   * @param {Event} e
+   */
   const handleShowEntries = e => {
     setEntriesPerPage(Number(e.target.value));
     paginate(1);

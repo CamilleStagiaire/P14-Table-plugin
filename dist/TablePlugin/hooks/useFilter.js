@@ -5,6 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _react = require("react");
+/**
+ * Hook personnalisé pour filtrer des données en fonction d'un terme de recherche.
+ * @param {Array} data 
+ * @param {string} searchTerm
+ * @returns {Array}
+ */
 const useFilter = (data, searchTerm) => {
   const filteredData = (0, _react.useMemo)(() => {
     if (!searchTerm) return data;

@@ -1,3 +1,10 @@
+/**
+ * Fonction pour gérer le style
+ * @param {number} r
+ * @param {number} g
+ * @param {number} b
+ * @returns {Function}
+ */
 const getStyleFunction = (r, g, b) => (isSorted, isOddRow, selectPagination) => {
     let backgroundColor;
     if (isSorted || isOddRow) {
@@ -9,4 +16,3 @@ const getStyleFunction = (r, g, b) => (isSorted, isOddRow, selectPagination) => 
   };
   
   export default getStyleFunction;
-  

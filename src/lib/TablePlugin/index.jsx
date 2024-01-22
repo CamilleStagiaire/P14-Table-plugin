@@ -8,6 +8,13 @@ import hexToRgb from "./utils/hexToRgb";
 import getStyleFunction from "./utils/getStyle";
 import "./styles.css";
 
+/**
+ * Composant TablePlugin 
+ * @param {Array} props.data
+ * @param {Object} props.dataMapping
+ * @param {String} props.primaryColor
+ * @returns {React.Element}
+ */
 const TablePlugin = ({ data, dataMapping, primaryColor }) => {
  
   const { r, g, b } = useMemo(() => hexToRgb(primaryColor), [primaryColor]);
@@ -21,6 +28,10 @@ const TablePlugin = ({ data, dataMapping, primaryColor }) => {
   const { sortedData, requestSort, sortConfig } = useTableSort(filteredData, { key: "lastName", direction: "ascending" });
   const { currentData, paginate, currentPage, startEntry, endEntry, totalEntries, pageNumbers, handlePreviousPage, handleNextPage } = usePagination(sortedData, entriesPerPage );
 
+  /**
+   * Gère le changement du nombre d'entrées à afficher par page.
+   * @param {Event} e
+   */
  const handleShowEntries = (e) =>{
   setEntriesPerPage(Number(e.target.value))
   paginate(1)
