@@ -22,6 +22,7 @@
 
 **Etape 7 : Patch:**  
 ```bash
+npm whoami
 npm run build
 git add .
 git commit -a -m "Mise à jour du package"
